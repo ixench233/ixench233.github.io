@@ -1,0 +1,460 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>数学建模论文写作 | 沉汐 DevLog</title><meta name="author" content="chenxi34"><meta name="copyright" content="chenxi34"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本文围绕《数学建模论文写作》，系统梳理论文标题、摘要写作、问题重述、模型建立与求解、模型检验、参考文献和附录等核心内容。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数学建模论文写作">
+<meta property="og:url" content="https://blog.chenxi34.top/2026/08/02/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/index.html">
+<meta property="og:site_name" content="沉汐 DevLog">
+<meta property="og:description" content="本文围绕《数学建模论文写作》，系统梳理论文标题、摘要写作、问题重述、模型建立与求解、模型检验、参考文献和附录等核心内容。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-68.png?v=20260816">
+<meta property="article:published_time" content="2026-08-02T08:25:44.000Z">
+<meta property="article:modified_time" content="2026-08-02T08:25:44.000Z">
+<meta property="article:author" content="chenxi34">
+<meta property="article:tag" content="技术写作">
+<meta property="article:tag" content="数学建模">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-68.png?v=20260816"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "数学建模论文写作",
+  "url": "https://blog.chenxi34.top/2026/08/02/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/",
+  "image": "https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-68.png?v=20260816",
+  "datePublished": "2026-08-02T08:25:44.000Z",
+  "dateModified": "2026-08-02T08:25:44.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "chenxi34",
+      "url": "https://blog.chenxi34.top"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://blog.chenxi34.top/2026/08/02/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '数学建模论文写作',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.0.0"></head><body><div id="web_bg" style="background-image: url(/img/background.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-68.png?v=20260816);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">沉汐 DevLog</span></a><a class="nav-page-title" href="/"><span class="site-name">数学建模论文写作</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">数学建模论文写作</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-08-02T08:25:44.000Z" title="发表于 2026-08-02 16:25:44">2026-08-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-08-02T08:25:44.000Z" title="更新于 2026-08-02 16:25:44">2026-08-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%86%99%E4%BD%9C/">写作</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="数学建模论文写作"><a href="#数学建模论文写作" class="headerlink" title="数学建模论文写作"></a>数学建模论文写作</h1><h2 id="一、写作方法"><a href="#一、写作方法" class="headerlink" title="一、写作方法"></a>一、写作方法</h2><h3 id="1-1-论文标题"><a href="#1-1-论文标题" class="headerlink" title="1.1 论文标题"></a>1.1 论文标题</h3><p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-68.png?v=20260816" alt="1786886528847"></p>
+<p>标题可以基于所使用的主要模型或方法来拟定，长度一般不超过 20 字。</p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-69.png?v=20260816" alt="1786886533971"></p>
+<p>也可以直接使用赛题问题作为标题。</p>
+<h2 id="二、摘要写作"><a href="#二、摘要写作" class="headerlink" title="二、摘要写作"></a>二、摘要写作</h2><h3 id="2-1-摘要的定义、作用与要求"><a href="#2-1-摘要的定义、作用与要求" class="headerlink" title="2.1 摘要的定义、作用与要求"></a>2.1 摘要的定义、作用与要求</h3><p><strong>什么是摘要：</strong></p>
+<p>摘要是对论文内容的一份简短陈述，不能超过一页。</p>
+<p><strong>摘要的作用：</strong></p>
+<p>使读者或评委在不阅读论文全文的情况下就能获得必要的信息。</p>
+<p><strong>摘要需要包含的三要素：</strong></p>
+<p><strong>解决了什么问题；应用了什么方法；得到了什么结果。</strong></p>
+<p><strong>摘要书写的特点：</strong></p>
+<p>摘要需充分概括论文内容，文字必须十分简练，书写时应注意突出论文的新见解、新方法和特色，陈述要客观，不能带有主观性。</p>
+<p><strong>摘要的重要性：</strong></p>
+<p>摘要是数模论文写作中最重要的部分之一。评阅老师的时间有限（通常每篇约 15 分钟），不会完整地从头读到尾，因此往往会重点阅读摘要，并结合官方评阅要点对论文进行初步评定。因此，摘要应在论文其他部分完成后再集中撰写，并进行多轮修改。</p>
+<h3 id="2-2-摘要样例"><a href="#2-2-摘要样例" class="headerlink" title="2.2 摘要样例"></a>2.2 摘要样例</h3><p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-5.png" alt="image-5"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-6.png" alt="image-6"></p>
+<p><strong>篇幅：</strong></p>
+<p>首页一大半，1000字左右</p>
+<p><strong>写法：</strong></p>
+<p><strong>第一段：</strong></p>
+<p>需要充分概括论文内容，一般两到三句话即可，</p>
+<p>长度控制在三至五行。</p>
+<p>第一句话可以简单交代下题目的背景（可选）</p>
+<p>第二句话交代本文所做的工作（必须）</p>
+<p>第三句话可以说下解决这个问题的实际意义（少部分有）</p>
+<p>重要性排序：<strong>第二句话 &gt; 第一句话 &gt; 第三句话</strong>。</p>
+<p><strong>例1（19b）：</strong></p>
+<p>“同心鼓”游戏是一项团队协作能力拓展项目，队员通过拉绳使鼓抬高，达到使球在鼓面上跳动的目的。本文通过建立三维物理模型，利用数学物理方法，分析了“同心鼓”游戏中的物理过程。该问题的研究能为游戏参与者提供指导性意见，帮助参与者取得更好成绩。</p>
+<p><strong>例5（20c）：</strong></p>
+<p>本文主要研究了银行针对中小微企业的信贷决策问题。信贷决策需要银行利用各企业的相关资料与信息，在对企业进行综合评价之后做出是否放贷、放贷多少、期限多久和利率多少等决策的问题。该问题的研究可以使银行在不影响自身收益的条件下，让我国的中小微企业的信贷问题得到改善，同时也提高了银行信贷决策的效率和质量。</p>
+<p><strong>中间段：</strong></p>
+<p>需要对每个问题分别进行叙述，一般包含以下三要素：</p>
+<p>解决了什么问题</p>
+<p>应用了什么方法</p>
+<p>得到了什么结果</p>
+<p>（1）解决了什么问题？</p>
+<p>常见写法有三种：</p>
+<p>直接用一句话概括题目要我们求解的问题。（较少见到）</p>
+<p>不单独提出我们要解决的是什么问题，因为在后面的两个要</p>
+<p>素中也会提到。（最常见）</p>
+<p>可以指出题目中问我们的是什么类型的问题，例如常见的有：</p>
+<p>预测类、评价类、规划优化类。（极少见到）</p>
+<p>**例1 (20c)：**针对问题一，主要解决两个问题：一是需要量化各企业的信贷风险，二是需要给出银行的最优信贷决策。（方式一）</p>
+<p>**例2 (20b)：**针对问题二，本文利用马尔可夫链，建立马尔可夫链天气预测模型，根据第一关的天气转换情况预测其余关卡的天气情况，再根据问题一的模型得出在不同天气状况下的最佳决策。（方式二）</p>
+<p>**例3 (20a)：**针对问题二，在大温区温度已知、制程界限给定的前提下确定元件最大过炉速度，实质上是非线性约束条件下的单目标单变量规划求解问题。（方式三）</p>
+<p>（2）应用了什么方法？</p>
+<p>这里写出你对于这个问题的求解思路，并说明你应用的模型。</p>
+<p>这里写作时一定要紧扣题目本身，不能脱离题目本身来描述模型。</p>
+<p>**例1 (19e)：**针对问题三，根据问题一和问题二对商场每天的销售额和利润率与打折力度，利用迭代加权最小二乘法，建立了打折力度为自变量、销售额利润率为因变量的线性回归模型。</p>
+<p>**例2 (19c)：**针对上车点的设置问题，需要我们合理安排上车点数量，使得机场乘车效率最高。于是，我们以乘车效率为优化目标，安全因素为约束条件，上车点数量为决策变量，建立单目标优化模型。其中，我们通过合理制定机场出租车乘车区运行规则，利用计算机模拟的方法，计算得到各方案对应的乘车效率。</p>
+<p>**例3 (18c)：**针对问题二，本题选用 K-均值聚类法，以消费金额和消费次数作为衡量会员购买力的特征数据，运用 SPSS 软件对提取好的数据（见附录 2）对会员进行聚类，K 值以公式 (1) 进行确定。</p>
+<p>（3）得到了什么结果？</p>
+<p>在介绍完建模方法后，应补充通过该方法或模型得到的结果。一般有以下两种情况：</p>
+<p>(i) 需要计算出数值答案，例如物理题、规划优化类、预测类</p>
+<p>直接回答该答案即可。</p>
+<p>如果模型中有重要参数时，我们可以做灵敏度分析（课件后面会介绍什么是灵敏度分析）</p>
+<p>如果涉及概率统计，可以考虑加上置信区间</p>
+<p>如果是预测类或者数值计算类， 可以考虑加上误差分析</p>
+<p>语言表达示例：</p>
+<p>通过 A 方法得到 XXX。这里的 A 可以是编程遍历求解、数值模拟、离散处理等。</p>
+<p><strong>例1 (20a)：</strong></p>
+<p>利用模拟退火算法迭代 20000 次进行求解，得到的最优方案为：</p>
+<p>184.2181°C（小温区 1~5）</p>
+<p>189.8133°C（小温区 6）</p>
+<p>227.5226°C（小温区 7）</p>
+<p>264.0700°C（小温区 8~9）传送带过炉速度为 90.0982 cm&#x2F;min。</p>
+<p>**例2 (20b)：**使用 Matlab 和 C++ 编程求解，最终得到：在最佳策略下，第一关、第二关的剩余资金分别为 10470 元、12730 元，并将相应结果填入了 Result.xlsx 文件；随后，我们对该模型进行了灵敏度分析，灵敏度分析的结果为……。</p>
+<p>(ii) 开放的问题，例如评价类、提建议类、设计方案策略类</p>
+<p>对于较为开放的问题，我们在摘要中只需要写出主要的结论，</p>
+<p>在下结论时应有明确观点，避免表述模糊。</p>
+<p>如果能够用数值描述结果，表达效果会更好。例如：采取某种建议或方案后提高了多少、降低了多少。</p>
+<p><strong>例3（20c）：</strong></p>
+<p>最终获得基于新冠肺炎突发事件下的信贷调整政策，并将其与第二问的结果进行对比，文章发现 新冠疫情的爆发导致银行的信贷策略更加倾向于高新技术产业。</p>
+<p><strong>例4（16b）：</strong></p>
+<p>求解得到小区开放后，周边一级主路的通行力得分提高了为 11.32%，二级主路的通行力得分提高了为 12.89%，三级主路的通行力得分提高了为 0.26%。调整指标之间的直接影响矩阵，发现道路通行力对各指标间相互影响关系的强弱变化比较敏感。</p>
+<p>此外，如果问题的完整答案较长，可以在摘要中呈现最核心的结果，并引导读者在正文或附录中查看完整结果。</p>
+<p><strong>结尾段：</strong></p>
+<p>可以总结全文。</p>
+<p>也可以介绍论文亮点。</p>
+<p>也可以对类似问题进行适当推广。</p>
+<p>如果难以展开，可以不写。根据经验，只有约 30% 的优秀论文包含最后这一段。</p>
+<p>**例2 (18b)：**本文的亮点在于：首先，利用一般化的公式对系统调度进行了较为细致的机理分析，使得模型具有普适性；其次，给出了多个调度原则相互比较，从而有利于结果更优；最后，将蒙特卡洛模拟与机器学习的思想相结合，对上述调度原则的有效性进行验证，增强了模型的说服力。</p>
+<p>**例3 (20c)：**最后，本文对模型进行了优、缺点评价与模型推广，得出该模型还可以向银行面对的其他对象和生活的其它方面进行推广的结论。</p>
+<p>**例4 (20b)：**综上所述，本文依据各题所给的条件较全面地分析了相关因素对玩家决策的影响，并给出了不同条件下玩家的最佳策略，实现了在终点的最大收益。经过分析验证，本文的模型具有合理性和一定的现实意义。</p>
+<h3 id="2-3-摘要中的常见冗余表达"><a href="#2-3-摘要中的常见冗余表达" class="headerlink" title="2.3 摘要中的常见冗余表达"></a>2.3 摘要中的常见冗余表达</h3><p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-7.png" alt="image-7"></p>
+<p>练习：7.15 完成</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Na411w7c2?spm_id_from=333.788.player.switch&vd_source=d420f7956b080af4fe70629ab72818dd&p=8">https://www.bilibili.com/video/BV1Na411w7c2?spm_id_from=333.788.player.switch&amp;vd_source=d420f7956b080af4fe70629ab72818dd&amp;p=8</a></p>
+<h2 id="三、关键词"><a href="#三、关键词" class="headerlink" title="三、关键词"></a>三、关键词</h2><p>关键词一般放 4-6 个，主要从摘要中提取。</p>
+<p>可以放论文中使用的主要模型。</p>
+<p>也可以放论文中出现次数较多、能够体现主要内容的词。</p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-8.png" alt="image-8"></p>
+<h2 id="四、问题重述"><a href="#四、问题重述" class="headerlink" title="四、问题重述"></a>四、问题重述</h2><h3 id="4-1-Prompt"><a href="#4-1-Prompt" class="headerlink" title="4.1 Prompt"></a>4.1 Prompt</h3><p>你是一位数学建模高手，请根据问题原背景a和要求b，写问题重述的问题背景部分。</p>
+<p>你是一位数学建模高手，请根据问题原问题a和要求b和格式c，写问题重述的问题要求部分。</p>
+<p>格式c：\subsection{问题要求}</p>
+<p>（总体的要求）</p>
+<p>\textbf{问题1}</p>
+<p>\textbf{问题2}</p>
+<p>\textbf{问题3}</p>
+<p>\textbf{问题4}</p>
+<p>\textbf{问题5}</p>
+<h3 id="4-2-写作要求"><a href="#4-2-写作要求" class="headerlink" title="4.2 写作要求"></a>4.2 写作要求</h3><p>本部分主要是对原问题进行整理，将问题背景和题目要求分开陈述，整体难度不高。</p>
+<p>本部分的目的是吸引读者继续阅读，因此文字不宜冗长，内容选择不要过于分散、琐碎，措辞应精练。</p>
+<p><strong>注意：写作时不可照抄原题。</strong></p>
+<p>应在充分理解问题的基础上，用自己的语言重新描述问题。语言需要简明扼要，没有必要像原题一样面面俱到。</p>
+<h4 id="4-2-1-例-1：时间紧张时"><a href="#4-2-1-例-1：时间紧张时" class="headerlink" title="4.2.1 例 1：时间紧张时"></a>4.2.1 <strong>例 1：时间紧张时</strong></h4><p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-9.png" alt="image-9"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-10.png" alt="image-10"></p>
+<h4 id="4-2-2-例-2：时间充裕时"><a href="#4-2-2-例-2：时间充裕时" class="headerlink" title="4.2.2 例 2：时间充裕时"></a>4.2.2 <strong>例 2：时间充裕时</strong></h4><p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-11.png" alt="image-11"></p>
+<h2 id="五、问题分析"><a href="#五、问题分析" class="headerlink" title="五、问题分析"></a>五、问题分析</h2><p>一般占据正文不超过一页，题目问题较多时不超过两页</p>
+<h3 id="5-1-位置"><a href="#5-1-位置" class="headerlink" title="5.1 位置"></a>5.1 位置</h3><p>位置比较灵活。</p>
+<p>可以放在问题重述后面作为单独的一节(见到的频率最高)</p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-12.png" alt="image-12"></p>
+<p>也可以放在模型假设和符号说明后面作为单独 的一节</p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-13.png" alt="image-13"></p>
+<p>还可以针对每个问题将其写在模型建立中。</p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-14.png" alt="image-14"></p>
+<h3 id="5-2-内容"><a href="#5-2-内容" class="headerlink" title="5.2 内容"></a>5.2 内容</h3><p>题目中包含的信息和条件。</p>
+<p>利用信息和条件对题目做整体分析，确定建模方法。一般每个问题单独分析一小节，分析过程要简明扼要，不需要放结论。</p>
+<p>建议在文字说明的同时用图形或图表（例如流程图）列出思维过程</p>
+<h4 id="5-2-1-例-1：论文-2019-年-A023"><a href="#5-2-1-例-1：论文-2019-年-A023" class="headerlink" title="5.2.1 例 1：论文 2019 年 A023"></a>5.2.1 <strong>例 1：论文 2019 年 A023</strong></h4><h5 id="5-2-1-1-问题分析"><a href="#5-2-1-1-问题分析" class="headerlink" title="5.2.1.1 问题分析"></a>5.2.1.1 问题分析</h5><p>问题的研究对象是高压油管，研究内容为其中燃油的压力变化情况。该问题描述了该系统在不同的进油和出油方式下的压力变化特点，并在不同的进油和出油方式下提出了不同的要求。</p>
+<h5 id="5-2-1-2-问题-1"><a href="#5-2-1-2-问题-1" class="headerlink" title="5.2.1.2 问题 1"></a>5.2.1.2 问题 1</h5><p>第一小问：问题定义了恒定的出油方式，同时其定义的进油方式只和系统压力与单向阀每次开启时长相关。其次提出了“将高压油管内的压力尽可能稳定在100MPa左右”的要求。这首先要求我们对“尽可能稳定在100MPa附近”做出描述，其次由问题描述易知，系统唯一的可改变变量为单向阀开启时长，这就要求我们将其作为决策变量，研究上述描述的最优化问题。</p>
+<p>第二小问：问题要求我们在不同的时间内将系统压力从100MPa调整到150MPa并使其稳定。这首先要求我们先将前一小问中期望的压力设定为150MPa，研究如何设定单向阀开启时间使其稳定，然后另外确定一个单向阀开启时间使得在规定时间内，系统压力能够从100MPa上升到150MPa。</p>
+<h4 id="5-2-2-例-2：论文-2019-年-B047"><a href="#5-2-2-例-2：论文-2019-年-B047" class="headerlink" title="5.2.2 例 2：论文 2019 年 B047"></a>5.2.2 <strong>例 2：论文 2019 年 B047</strong></h4><h5 id="5-2-2-1-问题分析"><a href="#5-2-2-1-问题分析" class="headerlink" title="5.2.2.1 问题分析"></a>5.2.2.1 问题分析</h5><h5 id="5-2-2-2-问题一的分析"><a href="#5-2-2-2-问题一的分析" class="headerlink" title="5.2.2.2 问题一的分析"></a>5.2.2.2 问题一的分析</h5><p>问题一希望给出各种颠球环境下团队的最优决策，并求出对应的颠球高度。同心鼓项目的目标是在不犯规的前提下实现颠球次数最大化。颠球有效指颠球高度大于40cm。将鼓身重心的初始位置高度记为0，在竖直方向上建立合适的平面直角坐标系。分析整个系统的受力情况时，将球从最高点下落并反弹回到最高点的过程视为一个颠球周期。描述颠球全过程时将颠球周期视为撞击前、撞击时、撞击后三个部分。分析球的运动状态时，由于球的受力面大且质量较小，运动时需要考虑球受到空气阻力作用；分析鼓的运动状态时，鼓受到竖直向上的合力作用由静止向上运动，根据机械能守恒推导鼓的运动方程；分析撞击时，将碰撞看作完全弹性碰撞，不计碰撞时间，由能量守恒与动量守恒计算球碰撞后的速度。</p>
+<p>受力分析完成后，建立最佳决策模型时，我们将项目中所有的变量分为环境变量与决策变量。我们认为颠球环境由颠球人数、绳长、鼓较绳水平时的高度、排球最高点高度、排球倾角这5个因素组成；最优决策由用力方向、用力时机与用力情况这3个因素组成，其中用排球下落后经过的时间表示成员的发力时机。为保证鼓面水平、球竖直上升，我们要求所有成员的用力方向需沿着于绳在鼓身受力点的切线方向，且要求成员的用力大小、发力时机相同。建立模型时，我们以队员间距离不小于60cm，颠球高度不小于40cm，发力方向沿绳方向，成员用力相同且同时发力为约束条件，以颠球用力大小最小化为目标函数。建立最优化模型求解最省力的最优决策方案。</p>
+<h4 id="5-2-3-例-3：论文-2019-年-C044"><a href="#5-2-3-例-3：论文-2019-年-C044" class="headerlink" title="5.2.3 例 3：论文 2019 年 C044"></a>5.2.3 <strong>例 3：论文 2019 年 C044</strong></h4><h5 id="5-2-3-1-问题的分析"><a href="#5-2-3-1-问题的分析" class="headerlink" title="5.2.3.1 问题的分析"></a>5.2.3.1 问题的分析</h5><p>本文要解决的是飞机场离港出租车上客系统优化问题。问题一、二要求从司机角度，结合机场情况作出空载返回或是排队等候的决策，使得利润最大化。而第三、第四问要求从机场角度考虑如何安排上车点，提高乘车效率以及如何设置短途返回“优先机制”以能够均衡司机收益。</p>
+<h5 id="5-2-3-2-对问题一的分析"><a href="#5-2-3-2-对问题一的分析" class="headerlink" title="5.2.3.2 对问题一的分析"></a>5.2.3.2 对问题一的分析</h5><p>针对问题一，为充分分析决策的影响因素及其机理，不妨站在司机角度上模拟决策做出的过程：</p>
+<p>假设排队等候，通过排队车辆数、机场航班等情况估算等候的时间成本，并结合载客回市区的收益得出采取此决策的预期利润。二、假设空载返回，将空跑损耗作为成本，估计返回节省下的等候时间在市区拉客产生的收益，同样地可以给出采取空载返回决策的预期利润。</p>
+<p>比较两种假设下的预期利润作出决策。如此，我们可以从决策过程中提取出直接影响因素：等待时间、返回时间、空跑损耗、载客利润及市区收益。对其继续分析可得到制约这几个量的根本影响因素：排队车辆数、打的人数、收费标准以及返回路程。对这类选择决策性问题建立模型时使用0-1变量表征采取的方式，目标函数取不同决策下的最大利润。使用上述5个根本影响因素表示不同决策下的收益以及成本作为约束条件即可建立优化模型给出不同情况下使利润最大化的决策。</p>
+<h3 id="5-3-流程图示例"><a href="#5-3-流程图示例" class="headerlink" title="5.3 流程图示例"></a>5.3 流程图示例</h3><h4 id="5-3-1-关于流程图"><a href="#5-3-1-关于流程图" class="headerlink" title="5.3.1 关于流程图"></a>5.3.1 关于流程图</h4><p>常见问题：形式过于普通。</p>
+<p><strong>2020C170</strong></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-15.png" alt="image-15"></p>
+<p><strong>2020B078</strong></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-16.png" alt="image-16"></p>
+<p><strong>2019C308</strong></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-17.png" alt="image-17"></p>
+<h2 id="六、模型假设"><a href="#六、模型假设" class="headerlink" title="六、模型假设"></a>六、模型假设</h2><h3 id="6-1-模型假设的分类与格式"><a href="#6-1-模型假设的分类与格式" class="headerlink" title="6.1 模型假设的分类与格式"></a>6.1 模型假设的分类与格式</h3><p>（1）题目明确给出的假设条件</p>
+<p>这种情况最为简单，我们只需要把题目中给我们的假设搬过来就行了。例如</p>
+<p>2020B题第1问中，题目中假设玩家知道每天天气的状况。</p>
+<p>（2）排除生活中的小概率事件(例如黑天鹅事件、非正常情况)</p>
+<p>例如：</p>
+<p>和交通运输相关的问题中，我们可以假设不存在地质灾难、交通事故等；</p>
+<p>和经济金融相关的问题中，我们可以假设不存在经济危机、系统风险等；</p>
+<p>和生产制造相关的问题中，我们可以假设不存在设备故障、生产事故等。</p>
+<p>（3）仅考虑问题中的核心因素，不考虑次要因素的影响</p>
+<p>（注意：过于简化的模型会使得你的论文没有优势和亮点）</p>
+<p>例如：</p>
+<p>考虑传染病的传播规律时，可忽略性别、年龄等因素的影响；</p>
+<p>考虑交通拥堵状况时，可只考虑机动车，暂不考虑非机动车和行人；</p>
+<p>考虑人口预测问题时，可不考虑移民、大规模人口迁移等因素的影响。</p>
+<p>（4）使用的模型中要求的假设</p>
+<p>例如：</p>
+<p>使用博弈论模型时可以假设参与博弈者都是“理性人”；</p>
+<p>使用Markov（马尔可夫）模型时可以假设系统或状态具有无后效性；</p>
+<p>使用回归模型时可以假设扰动项服从独立的正态分布。</p>
+<p>（5）对模型中的参数形式(或者分布)进行假设</p>
+<p>例如：（注意：如果能在论文中用数据验证这些假设更好）</p>
+<p>假设人口增长服从阻滞增长模型(Logistic模型)；</p>
+<p>假设不考虑环境变动时，某鱼群的自然死亡率为常数；</p>
+<p>假设产品的寿命(或旅客进机场的时间间隔)服从指数分布；</p>
+<p>假设单位时间内排队的人数(或机器出现的故障数)服从泊松分布；</p>
+<p>假设生产出来的产品某参数(例如重量、大小)服从ܰ(ߤ, ߪଶ )，且各产品独立。</p>
+<p>（6）和题目联系很紧密的一些假设，主要是为了简化模型</p>
+<p>这类假设与题目以及建立的模型结合的很紧密，需要我们深入挖掘。</p>
+<p>例子</p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-18.png" alt="image-18"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-19.png" alt="image-19"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-20.png" alt="image-20"></p>
+<h3 id="6-2-模型假设合理性保证方法"><a href="#6-2-模型假设合理性保证方法" class="headerlink" title="6.2 模型假设合理性保证方法"></a>6.2 模型假设合理性保证方法</h3><p>事实上，很少见到论文专门对模型假设的合理性进行论证。如果需要论证，</p>
+<p>可以考虑以下两个角度：</p>
+<p>可以引用已有文献或公开资料，这样更有说服力。</p>
+<p>如果要对模型中的参数形式(或者分布)进行假设，可以在正文中使用实际数据进行绘图或者进行假设检验来支持你的假设。</p>
+<h3 id="6-3-模型假设设置过强怎么办？"><a href="#6-3-模型假设设置过强怎么办？" class="headerlink" title="6.3 模型假设设置过强怎么办？"></a>6.3 模型假设设置过强怎么办？</h3><p>如果给定过强的假设，会存在一定风险：模型过于简单，容易显得论文缺少深度和亮点。</p>
+<p>如果建立的模型比其他方案考虑了更多因素，可以在一定程度上视为创新。</p>
+<p>但多数情况下，想考虑的因素或条件也较难估算。这时可以在论文后面的模型评价与改进部分补充相关想法，以弥补假设过强的问题。</p>
+<h2 id="七、符号说明"><a href="#七、符号说明" class="headerlink" title="七、符号说明"></a>七、符号说明</h2><p>第一，不需要把所有变量都放到表中，模型中用到的临时变量可以不放。</p>
+<p>第二，下文中首次出现这些变量时也要进行解释，否则会降低文章的可读性。</p>
+<p>符号 定义 单位</p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-21.png" alt="image-21"></p>
+<h2 id="八、模型准备"><a href="#八、模型准备" class="headerlink" title="八、模型准备"></a>八、模型准备</h2><p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-22.png" alt="image-22"></p>
+<h2 id="九、模型的建立与求解"><a href="#九、模型的建立与求解" class="headerlink" title="九、模型的建立与求解"></a>九、模型的建立与求解</h2><p>模型建立部分前面应写一个总括，流程图也可以放在这里。</p>
+<p>模型建立：模型建立是将原问题抽象成用数学语言的表达式，它一定是在先</p>
+<p>前的问题分析和模型假设的基础上得来的。由于比赛时间紧张，很多时候会使用已有模型。这部分一定要将题目要求和模型紧密结合，切忌随意套用模型。也可以对已有模型的某一方面进行改进或优化，或者建立不同模型解决同一个问题，这些都可以构成论文的创新点和亮点。</p>
+<p>模型求解：把实际问题归结为一定的数学模型后，就要利用数学模型求解所</p>
+<p>提出的实际问题。一般需要借助计算机软件进行求解，常用软件包括 Matlab、SPSS、Lingo、Excel、Stata、Python 等。求解完成后，结果应规范、准确、醒目；若求解结果过长，最好编入附录。<strong>注意：如果使用智能优化算法或数值计算方法求解，需要简要阐明算法的计算步骤。</strong></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-23.png" alt="image-23"></p>
+<p>建议采用左侧形式。</p>
+<h3 id="9-1-物理学类"><a href="#9-1-物理学类" class="headerlink" title="9.1 物理学类"></a>9.1 物理学类</h3><p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-24.png" alt="image-24"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-25.png" alt="image-25"></p>
+<h3 id="9-2-优化类"><a href="#9-2-优化类" class="headerlink" title="9.2 优化类"></a>9.2 优化类</h3><p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-26.png" alt="image-26"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-27.png" alt="image-27"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-28.png" alt="image-28"></p>
+<h3 id="9-3-使用已有模型"><a href="#9-3-使用已有模型" class="headerlink" title="9.3 使用已有模型"></a>9.3 使用已有模型</h3><p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-29.png" alt="image-29"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-30.png" alt="image-30"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-31.png" alt="image-31"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-32.png" alt="image-32"></p>
+<p>首先，简要介绍所用模型的基本原理和基本思想。</p>
+<p>然后构建基本模型，如数学表达式、算法流程图等。</p>
+<h3 id="9-4-模型求解"><a href="#9-4-模型求解" class="headerlink" title="9.4 模型求解"></a>9.4 模型求解</h3><p>1）国赛中常出现优化类问题。如果使用启发式算法（智能优化算法，如模拟退火、遗传算法、蚁群算法）求解，应简要写明算法步骤，并结合具体问题阐明计算思路。</p>
+<p>2019年B136</p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-33.png" alt="image-33"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-34.png" alt="image-34"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-35.png" alt="image-35"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-36.png" alt="image-36"></p>
+<p>2）求解结果应在论文中突出展示。</p>
+<p>有具体答案的问题相对简单，直接呈现数值计算结果即可。</p>
+<p>如果是开放类问题，应对结果进行阐明和解释，并尽量配合图表展示。</p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-37.png" alt="image-37"></p>
+<h4 id="9-4-1-开放类"><a href="#9-4-1-开放类" class="headerlink" title="9.4.1 开放类"></a>9.4.1 开放类</h4><p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-38.png" alt="image-38"></p>
+<h2 id="十、模型的分析与检验"><a href="#十、模型的分析与检验" class="headerlink" title="十、模型的分析与检验"></a>十、模型的分析与检验</h2><p>本部分标题需要根据内容进行调整，很多论文也会将其直接称为“模型检验”。</p>
+<h3 id="10-1-模型的分析"><a href="#10-1-模型的分析" class="headerlink" title="10.1 模型的分析"></a>10.1 模型的分析</h3><h4 id="10-1-1-灵敏度分析"><a href="#10-1-1-灵敏度分析" class="headerlink" title="10.1.1 灵敏度分析"></a>10.1.1 灵敏度分析</h4><p>小节标题应写明是对哪个模型进行灵敏度分析，不建议写成“问题几的灵敏度分析”。</p>
+<p>控制其他参数不变的情况下，改变模型中某个重要参数的值，然后观察模型的结果的变化情况</p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-39.png" alt="image-39"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-40.png" alt="image-40"></p>
+<p>变化可以从两个角度观察：1. 趋势；2. 斜率。例如，α 越大，y 越敏感。</p>
+<h5 id="10-1-1-1-示例"><a href="#10-1-1-1-示例" class="headerlink" title="10.1.1.1 示例"></a>10.1.1.1 示例</h5><p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-41.png" alt="image-41"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-42.png" alt="image-42"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-43.png" alt="image-43"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-44.png" alt="image-44"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-45.png" alt="image-45"></p>
+<h4 id="10-1-2-误差分析"><a href="#10-1-2-误差分析" class="headerlink" title="10.1.2 误差分析"></a>10.1.2 误差分析</h4><p>指分析模型中的误差来源，或者估算模型中存在的误差，一般用于预测问题或者数值计算类问题。</p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-46.png" alt="image-46"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-47.png" alt="image-47"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-48.png" alt="image-48"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-49.png" alt="image-49"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-50.png" alt="image-50"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-51.png" alt="image-51"></p>
+<h3 id="10-2-模型的检验"><a href="#10-2-模型的检验" class="headerlink" title="10.2 模型的检验"></a>10.2 模型的检验</h3><p>一种是使用模型之前应进行的检验。</p>
+<p>例如层次分析法中的一致性检验、灰色预测中的准指数规律检验，这部分内容应放在模型建立部分。</p>
+<p>另一种是使用模型后对模型结果进行检验。数模中最常见的是稳定性检验（有的论文也称为稳健性检验或稳健性分析），这类检验与前面的灵敏度分析较为相似。</p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-52.png" alt="image-52"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-53.png" alt="image-53"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-54.png" alt="image-54"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-55.png" alt="image-55"></p>
+<h2 id="十一、模型的评价、改进与推广"><a href="#十一、模型的评价、改进与推广" class="headerlink" title="十一、模型的评价、改进与推广"></a>十一、模型的评价、改进与推广</h2><p>注：本部分标题需要根据论文内容进行调整。例如，如果没有写模型推</p>
+<p>广，可以直接将标题写成“模型的评价与改进”。很多论文也会将这部分内容统称为“模型评价”，这种写法也是可以的。</p>
+<h3 id="11-1-三个部分写什么内容？"><a href="#11-1-三个部分写什么内容？" class="headerlink" title="11.1 三个部分写什么内容？"></a>11.1 三个部分写什么内容？</h3><h4 id="11-1-1-模型的评价"><a href="#11-1-1-模型的评价" class="headerlink" title="11.1.1 模型的评价"></a>11.1.1 模型的评价</h4><p>主要写模型的优缺点；</p>
+<h4 id="11-1-2-模型的改进"><a href="#11-1-2-模型的改进" class="headerlink" title="11.1.2 模型的改进"></a>11.1.2 模型的改进</h4><p>主要说明模型中有哪些不足，以及后续可以改进的方向。</p>
+<h4 id="11-1-3-模型的推广"><a href="#11-1-3-模型的推广" class="headerlink" title="11.1.3 模型的推广"></a>11.1.3 模型的推广</h4><p>将原题要求进行扩展，进一步讨论模型的实用性和可行性。</p>
+<p>其中，优缺点是必须写的内容；模型改进与模型推广可选，但建议尽量写。对于能力较强的建模者，这部分可以充分体现论文深度，并起到画龙点睛的作用。</p>
+<p>建议优点篇幅大于缺点篇幅。</p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-56.png" alt="image-56"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-57.png" alt="image-57"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-58.png" alt="image-58"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-59.png" alt="image-59"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-60.png" alt="image-60"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-61.png" alt="image-61"></p>
+<h2 id="十二、参考文献"><a href="#十二、参考文献" class="headerlink" title="十二、参考文献"></a>十二、参考文献</h2><p>所有引用他人或公开资料(包括网上资料)的成果必须按照科技论文的规范列出参考文献，并在正文引用处予以标注。</p>
+<h3 id="12-1-常见的三种参考文献表达方式"><a href="#12-1-常见的三种参考文献表达方式" class="headerlink" title="12.1 常见的三种参考文献表达方式"></a>12.1 常见的三种参考文献表达方式</h3><p>书籍的表述方式为：[编号]作者，书名，出版地：出版社，出版年月。</p>
+<p>期刊杂志论文的表述方式为：[编号]作者，论文名，杂志名，卷期号：起止</p>
+<p>页码，出版年。</p>
+<p>网上资源(例如数据库、政府报告)的表述方式为：[编号]作者，资源标题，</p>
+<p>网址，访问时间。</p>
+<h3 id="12-2-注意事项"><a href="#12-2-注意事项" class="headerlink" title="12.2 注意事项"></a>12.2 注意事项</h3><p>引用内容需要在正文中标注出来。</p>
+<p>不建议引用个人博客。</p>
+<p>不要引用往届国赛论文中的内容。</p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-62.png" alt="image-62"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-63.png" alt="image-63"></p>
+<h2 id="十三、附录"><a href="#十三、附录" class="headerlink" title="十三、附录"></a>十三、附录</h2><p>论文附录内容应包括支撑材料的文件列表</p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-64.png" alt="image-64"></p>
+<p>建模所用到的全部完整、可运行的源程序代码（含EXCEL、SPSS等软件的交互命令）等</p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-65.png" alt="image-65"></p>
+<p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-66.png" alt="image-66"></p>
+<p>除了支撑材料的文件列表和源程序代码外，附录中还可以包括以下内容：</p>
+<p>某一问题的详细证明或求解过程；</p>
+<p>自己在网上找到的数据；</p>
+<p>比较大的流程图；</p>
+<p>较繁杂的图表或计算结果（注意：一般结果只要不超过A4一页，尽量都放在正文中）。</p>
+<h3 id="13-1-支撑材料内容"><a href="#13-1-支撑材料内容" class="headerlink" title="13.1 支撑材料内容"></a>13.1 支撑材料内容</h3><p>包括用于支撑模型、结果、结论的所有必要材料。</p>
+<p>至少应包含：</p>
+<p>建模所用到的所有可运行源程序</p>
+<p>自主查阅使用的数据资料（赛题中提供的原始数据除外）</p>
+<p>较大篇幅中间结果的图表等。</p>
+<p>将所有支撑材料文件使用WinRAR软件压缩在一个文件中（后缀为RAR或ZIP，大小不超过20MB）。支撑材料的文件列表应放入论文附录；如果确实没有需要提供的支撑材料，可以不提供支撑材料文件，并在论文附录中注明“本论文没有支撑材料”。如果支撑材料文件与论文内容不相符，该论文可能会被取消评奖资格。注意竞赛的承诺书和编号专用页不要放在支撑材料中，所有文件中不能有显示参赛者身份和所在学校及赛区的信息。</p>
+<h2 id="十四、论文排版"><a href="#十四、论文排版" class="headerlink" title="十四、论文排版"></a>十四、论文排版</h2><p><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-67.png" alt="image-67"></p>
+<p>国赛论文通常不用放目录。</p>
+<p>表的标题放在表格上方。</p>
+<p>三线表也可以添加辅助线。</p>
+<p>图的标题放在图片下方。</p>
+<h2 id="十五、LaTeX-使用"><a href="#十五、LaTeX-使用" class="headerlink" title="十五、LaTeX 使用"></a>十五、LaTeX 使用</h2><h3 id="15-1-带编号公式"><a href="#15-1-带编号公式" class="headerlink" title="15.1 带编号公式"></a>15.1 带编号公式</h3><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">LaTeX</span><br><span class="line"><span class="keyword">\begin</span>&#123;equation&#125;</span><br><span class="line"><span class="keyword">\label</span>&#123;eq:公式1&#125;</span><br><span class="line">E = mc<span class="built_in">^</span>2</span><br><span class="line"><span class="keyword">\end</span>&#123;equation&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="15-2-带编号的图片"><a href="#15-2-带编号的图片" class="headerlink" title="15.2 带编号的图片"></a>15.2 带编号的图片</h3><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">LaTeX</span><br><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;[ht]</span><br><span class="line"><span class="keyword">\centering</span></span><br><span class="line"><span class="keyword">\includegraphics</span>[width=0.75<span class="keyword">\textwidth</span>]&#123;example.eps&#125;<span class="comment">%%文件名</span></span><br><span class="line"><span class="keyword">\caption</span>&#123;单图&#125;<span class="comment">%%图片的名字</span></span><br><span class="line"><span class="keyword">\label</span>&#123;fig:单图&#125;<span class="comment">%%单图、双图</span></span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="15-3-引用"><a href="#15-3-引用" class="headerlink" title="15.3 引用"></a>15.3 引用</h3><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">LaTeX</span><br><span class="line">这句话引用了文献<span class="keyword">\cite</span>&#123;司守奎2011数学建模算法与应用&#125;。</span><br><span class="line"></span><br><span class="line">这句话引用了文献<span class="keyword">\upcite</span>&#123;卓金武2011MATLAB&#125;。</span><br></pre></td></tr></table></figure>
+
+<h3 id="15-4-带编号的表格"><a href="#15-4-带编号的表格" class="headerlink" title="15.4 带编号的表格"></a>15.4 带编号的表格</h3><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">LaTeX</span><br><span class="line"><span class="keyword">\begin</span>&#123;table&#125;[ht]</span><br><span class="line"><span class="keyword">\centering</span></span><br><span class="line"><span class="keyword">\caption</span>&#123;学生成绩统计&#125;</span><br><span class="line"><span class="keyword">\label</span>&#123;tab:样例表&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;tabular&#125;&#123;lccc&#125;</span><br><span class="line"><span class="keyword">\toprule</span></span><br><span class="line">姓名 <span class="built_in">&amp;</span> 数学 <span class="built_in">&amp;</span> 语文 <span class="built_in">&amp;</span> 英语 <span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\midrule</span></span><br><span class="line">张三 <span class="built_in">&amp;</span> 92 <span class="built_in">&amp;</span> 88 <span class="built_in">&amp;</span> 91 <span class="keyword">\\</span></span><br><span class="line">李四 <span class="built_in">&amp;</span> 85 <span class="built_in">&amp;</span> 79 <span class="built_in">&amp;</span> 86 <span class="keyword">\\</span></span><br><span class="line">王五 <span class="built_in">&amp;</span> 78 <span class="built_in">&amp;</span> 90 <span class="built_in">&amp;</span> 84 <span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\bottomrule</span></span><br><span class="line"><span class="keyword">\end</span>&#123;tabular&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;table&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="15-5-双图模板"><a href="#15-5-双图模板" class="headerlink" title="15.5 双图模板"></a>15.5 双图模板</h3><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">LaTeX</span><br><span class="line"><span class="comment">%%%%%双图模板%%%%%%</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;</span><br><span class="line"><span class="keyword">\centering</span></span><br><span class="line"><span class="keyword">\subcaptionbox</span>&#123;炉温曲线示意图<span class="keyword">\label</span>&#123;fig:双图a&#125;&#125;</span><br><span class="line">&#123;<span class="keyword">\includegraphics</span>[width=.4<span class="keyword">\textwidth</span>]&#123;炉温曲线示意图.png&#125;&#125;</span><br><span class="line"><span class="keyword">\subcaptionbox</span>&#123;问题 1 炉温曲线<span class="keyword">\label</span>&#123;fig:双图b&#125;&#125;</span><br><span class="line">&#123;<span class="keyword">\includegraphics</span>[width=.4<span class="keyword">\textwidth</span>]&#123;问题 1 炉温曲线.png&#125;&#125;</span><br><span class="line"><span class="keyword">\caption</span>&#123;双图&#125;<span class="keyword">\label</span>&#123;fig:双图&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br><span class="line"><span class="comment">%%%%%双图模板%%%%%%</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="15-6-“其中”的写法"><a href="#15-6-“其中”的写法" class="headerlink" title="15.6 “其中”的写法"></a>15.6 “其中”的写法</h3><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LaTeX</span><br><span class="line">其中，ST 为当地时间；D 为距离春分的天数。</span><br></pre></td></tr></table></figure>
+
+<p>将数据 a 按格式 b 表述。数据 a：格式 b：其中：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;itemize&#125;</span><br><span class="line">  <span class="keyword">\item</span> <span class="keyword">\(</span> NF <span class="keyword">\)</span>：接收机的噪声系数，取值为 7</span><br><span class="line">  <span class="keyword">\item</span> <span class="keyword">\(</span> b <span class="keyword">\)</span>：单个资源块的带宽，取值为 360</span><br><span class="line">  <span class="keyword">\item</span> <span class="keyword">\(</span> i <span class="keyword">\)</span>：用户持有的资源块数，取值为 <span class="keyword">\(</span> <span class="keyword">\&#123;</span>10, 5, 2<span class="keyword">\&#125;</span> <span class="keyword">\)</span></span><br><span class="line"><span class="keyword">\end</span>&#123;itemize&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="15-7-四级标题"><a href="#15-7-四级标题" class="headerlink" title="15.7 四级标题"></a>15.7 四级标题</h3><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LaTeX</span><br><span class="line"><span class="keyword">\noindent</span><span class="keyword">\textbf</span>&#123;(1) 总资源块约束&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="15-8-决策变量"><a href="#15-8-决策变量" class="headerlink" title="15.8 决策变量"></a>15.8 决策变量</h3><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">LaTeX</span><br><span class="line"><span class="keyword">\begin</span>&#123;itemize&#125;</span><br><span class="line">  <span class="keyword">\item</span> <span class="built_in">$</span>x<span class="built_in">_</span>&#123;t,k&#125;<span class="built_in">$</span>：第 <span class="built_in">$</span>t<span class="built_in">$</span> 轮分配方案中切片 <span class="built_in">$</span>k<span class="built_in">$</span> 的资源块分配量；</span><br><span class="line">  <span class="keyword">\item</span> <span class="built_in">$</span>z<span class="built_in">_</span>&#123;i,t&#125;<span class="keyword">\in</span><span class="keyword">\&#123;</span>0,1<span class="keyword">\&#125;</span><span class="built_in">$</span>：01 变量，表示在第 <span class="built_in">$</span>t<span class="built_in">$</span> 轮是否完成了任务 <span class="built_in">$</span>i<span class="built_in">$</span>。</span><br><span class="line"><span class="keyword">\end</span>&#123;itemize&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="15-9-目标函数与约束条件"><a href="#15-9-目标函数与约束条件" class="headerlink" title="15.9 目标函数与约束条件"></a>15.9 目标函数与约束条件</h3><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">LaTeX</span><br><span class="line"><span class="keyword">\begin</span>&#123;equation&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;aligned&#125;</span><br><span class="line">    <span class="keyword">\max</span><span class="keyword">\ </span><span class="built_in">&amp;</span> Z = Y<span class="built_in">_</span>1(x<span class="built_in">_</span>1) + Y<span class="built_in">_</span>2(x<span class="built_in">_</span>2) + Y<span class="built_in">_</span>3(x<span class="built_in">_</span>3) <span class="keyword">\\</span></span><br><span class="line">    <span class="keyword">\text</span>&#123;s.t. &#125; <span class="built_in">&amp;</span></span><br><span class="line">    <span class="keyword">\left</span><span class="keyword">\&#123;</span></span><br><span class="line">    <span class="keyword">\begin</span>&#123;aligned&#125;</span><br><span class="line">        <span class="built_in">&amp;</span> x<span class="built_in">_</span>1 + x<span class="built_in">_</span>2 + x<span class="built_in">_</span>3 = 50,<span class="keyword">\\</span></span><br><span class="line">        <span class="built_in">&amp;</span> x<span class="built_in">_</span>1 <span class="keyword">\in</span> <span class="keyword">\&#123;</span>0,10,20,30,40,50<span class="keyword">\&#125;</span>,<span class="keyword">\\</span></span><br><span class="line">        <span class="built_in">&amp;</span> x<span class="built_in">_</span>2 <span class="keyword">\in</span> <span class="keyword">\&#123;</span>0,5,10,15,<span class="keyword">\dots</span>,50<span class="keyword">\&#125;</span>,<span class="keyword">\\</span></span><br><span class="line">        <span class="built_in">&amp;</span> x<span class="built_in">_</span>3 <span class="keyword">\in</span> <span class="keyword">\&#123;</span>0,2,4,6,<span class="keyword">\dots</span>,50<span class="keyword">\&#125;</span>,<span class="keyword">\\</span></span><br><span class="line">        <span class="built_in">&amp;</span> x<span class="built_in">_</span>1, x<span class="built_in">_</span>2, x<span class="built_in">_</span>3 <span class="keyword">\ge</span> 0</span><br><span class="line">    <span class="keyword">\end</span>&#123;aligned&#125;</span><br><span class="line">    <span class="keyword">\right</span>.</span><br><span class="line"><span class="keyword">\end</span>&#123;aligned&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;equation&#125;</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://blog.chenxi34.top">chenxi34</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://blog.chenxi34.top/2026/08/02/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/">https://blog.chenxi34.top/2026/08/02/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://blog.chenxi34.top" target="_blank">沉汐 DevLog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</a><a class="post-meta__tags" href="/tags/%E6%8A%80%E6%9C%AF%E5%86%99%E4%BD%9C/">技术写作</a></div><div class="post-share"><div class="social-share" data-image="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-68.png?v=20260816" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related  no-desc" href="/2026/08/19/%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82/" title=""><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2"></div></div></div></a><a class="pagination-related" href="/2024/12/15/edge-tts%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90%E6%8C%87%E4%BB%A4%E6%B1%87%E6%80%BB/" title="用 edge-tts 把文字变成语音（含可用语音库与交互脚本）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">用 edge-tts 把文字变成语音（含可用语音库与交互脚本）</div></div><div class="info-2"><div class="info-item-1"> 在打服务外包的时候，看到不少 edge-tts 的教程，但要么只给了最基础指令，要么语音清单&#x2F;参数不全，实际动手总要四处拼资料。这篇文章尝试一次性把常用指令、参数说明、可用语音名称、以及可交互的示例脚本汇总在一起：复制即可用、需要时再按需扩展，减少你搭建 TTS 工作流的来回查找成本。   目标：快速把任意文本合成自然语音，支持多语言、男女声、语速、音量、音调与部分情绪风格。  1⃣️ edge-tts 是什么edge-tts 是基于微软 Edge&#x2F;SSML 的文本转语音 Python 库与命令行工具。它的特点：  支持多语言和地区方言（普通话、粤语、英语、法语、阿拉伯语等） 可调参数：语言&#x2F;声音、性别、语速 rate、音量 volume、音调 pitch 部分声音支持情绪&#x2F;风格（如 激情、活泼、温柔等） 纯本地调用云端服务，无需自行搭建推理引擎  项目地址：https://github.com/rany2/edge-tts  2⃣️ 安装1pip install edge-tts  如需命令行使用，安装上面这一条即可。  3⃣️ 最小可...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">chenxi34</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/chenxi34"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">数学建模论文写作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%86%99%E4%BD%9C%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">一、写作方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E8%AE%BA%E6%96%87%E6%A0%87%E9%A2%98"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 论文标题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%91%98%E8%A6%81%E5%86%99%E4%BD%9C"><span class="toc-number">1.2.</span> <span class="toc-text">二、摘要写作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E6%91%98%E8%A6%81%E7%9A%84%E5%AE%9A%E4%B9%89%E3%80%81%E4%BD%9C%E7%94%A8%E4%B8%8E%E8%A6%81%E6%B1%82"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 摘要的定义、作用与要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E6%91%98%E8%A6%81%E6%A0%B7%E4%BE%8B"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 摘要样例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E6%91%98%E8%A6%81%E4%B8%AD%E7%9A%84%E5%B8%B8%E8%A7%81%E5%86%97%E4%BD%99%E8%A1%A8%E8%BE%BE"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 摘要中的常见冗余表达</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%85%B3%E9%94%AE%E8%AF%8D"><span class="toc-number">1.3.</span> <span class="toc-text">三、关键词</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E9%97%AE%E9%A2%98%E9%87%8D%E8%BF%B0"><span class="toc-number">1.4.</span> <span class="toc-text">四、问题重述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-Prompt"><span class="toc-number">1.4.1.</span> <span class="toc-text">4.1 Prompt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E5%86%99%E4%BD%9C%E8%A6%81%E6%B1%82"><span class="toc-number">1.4.2.</span> <span class="toc-text">4.2 写作要求</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-1-%E4%BE%8B-1%EF%BC%9A%E6%97%B6%E9%97%B4%E7%B4%A7%E5%BC%A0%E6%97%B6"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">4.2.1 例 1：时间紧张时</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-2-%E4%BE%8B-2%EF%BC%9A%E6%97%B6%E9%97%B4%E5%85%85%E8%A3%95%E6%97%B6"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">4.2.2 例 2：时间充裕时</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="toc-number">1.5.</span> <span class="toc-text">五、问题分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E4%BD%8D%E7%BD%AE"><span class="toc-number">1.5.1.</span> <span class="toc-text">5.1 位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E5%86%85%E5%AE%B9"><span class="toc-number">1.5.2.</span> <span class="toc-text">5.2 内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-1-%E4%BE%8B-1%EF%BC%9A%E8%AE%BA%E6%96%87-2019-%E5%B9%B4-A023"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">5.2.1 例 1：论文 2019 年 A023</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-1-1-%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="toc-number">1.5.2.1.1.</span> <span class="toc-text">5.2.1.1 问题分析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-1-2-%E9%97%AE%E9%A2%98-1"><span class="toc-number">1.5.2.1.2.</span> <span class="toc-text">5.2.1.2 问题 1</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-2-%E4%BE%8B-2%EF%BC%9A%E8%AE%BA%E6%96%87-2019-%E5%B9%B4-B047"><span class="toc-number">1.5.2.2.</span> <span class="toc-text">5.2.2 例 2：论文 2019 年 B047</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-2-1-%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="toc-number">1.5.2.2.1.</span> <span class="toc-text">5.2.2.1 问题分析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-2-2-%E9%97%AE%E9%A2%98%E4%B8%80%E7%9A%84%E5%88%86%E6%9E%90"><span class="toc-number">1.5.2.2.2.</span> <span class="toc-text">5.2.2.2 问题一的分析</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-3-%E4%BE%8B-3%EF%BC%9A%E8%AE%BA%E6%96%87-2019-%E5%B9%B4-C044"><span class="toc-number">1.5.2.3.</span> <span class="toc-text">5.2.3 例 3：论文 2019 年 C044</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-3-1-%E9%97%AE%E9%A2%98%E7%9A%84%E5%88%86%E6%9E%90"><span class="toc-number">1.5.2.3.1.</span> <span class="toc-text">5.2.3.1 问题的分析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-3-2-%E5%AF%B9%E9%97%AE%E9%A2%98%E4%B8%80%E7%9A%84%E5%88%86%E6%9E%90"><span class="toc-number">1.5.2.3.2.</span> <span class="toc-text">5.2.3.2 对问题一的分析</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E6%B5%81%E7%A8%8B%E5%9B%BE%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.5.3.</span> <span class="toc-text">5.3 流程图示例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-1-%E5%85%B3%E4%BA%8E%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">1.5.3.1.</span> <span class="toc-text">5.3.1 关于流程图</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%A8%A1%E5%9E%8B%E5%81%87%E8%AE%BE"><span class="toc-number">1.6.</span> <span class="toc-text">六、模型假设</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E6%A8%A1%E5%9E%8B%E5%81%87%E8%AE%BE%E7%9A%84%E5%88%86%E7%B1%BB%E4%B8%8E%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.6.1.</span> <span class="toc-text">6.1 模型假设的分类与格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E6%A8%A1%E5%9E%8B%E5%81%87%E8%AE%BE%E5%90%88%E7%90%86%E6%80%A7%E4%BF%9D%E8%AF%81%E6%96%B9%E6%B3%95"><span class="toc-number">1.6.2.</span> <span class="toc-text">6.2 模型假设合理性保证方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-%E6%A8%A1%E5%9E%8B%E5%81%87%E8%AE%BE%E8%AE%BE%E7%BD%AE%E8%BF%87%E5%BC%BA%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="toc-number">1.6.3.</span> <span class="toc-text">6.3 模型假设设置过强怎么办？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E7%AC%A6%E5%8F%B7%E8%AF%B4%E6%98%8E"><span class="toc-number">1.7.</span> <span class="toc-text">七、符号说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E6%A8%A1%E5%9E%8B%E5%87%86%E5%A4%87"><span class="toc-number">1.8.</span> <span class="toc-text">八、模型准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%BB%BA%E7%AB%8B%E4%B8%8E%E6%B1%82%E8%A7%A3"><span class="toc-number">1.9.</span> <span class="toc-text">九、模型的建立与求解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#9-1-%E7%89%A9%E7%90%86%E5%AD%A6%E7%B1%BB"><span class="toc-number">1.9.1.</span> <span class="toc-text">9.1 物理学类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-2-%E4%BC%98%E5%8C%96%E7%B1%BB"><span class="toc-number">1.9.2.</span> <span class="toc-text">9.2 优化类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-3-%E4%BD%BF%E7%94%A8%E5%B7%B2%E6%9C%89%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.9.3.</span> <span class="toc-text">9.3 使用已有模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-4-%E6%A8%A1%E5%9E%8B%E6%B1%82%E8%A7%A3"><span class="toc-number">1.9.4.</span> <span class="toc-text">9.4 模型求解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#9-4-1-%E5%BC%80%E6%94%BE%E7%B1%BB"><span class="toc-number">1.9.4.1.</span> <span class="toc-text">9.4.1 开放类</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E3%80%81%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%88%86%E6%9E%90%E4%B8%8E%E6%A3%80%E9%AA%8C"><span class="toc-number">1.10.</span> <span class="toc-text">十、模型的分析与检验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#10-1-%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%88%86%E6%9E%90"><span class="toc-number">1.10.1.</span> <span class="toc-text">10.1 模型的分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#10-1-1-%E7%81%B5%E6%95%8F%E5%BA%A6%E5%88%86%E6%9E%90"><span class="toc-number">1.10.1.1.</span> <span class="toc-text">10.1.1 灵敏度分析</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#10-1-1-1-%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.10.1.1.1.</span> <span class="toc-text">10.1.1.1 示例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-1-2-%E8%AF%AF%E5%B7%AE%E5%88%86%E6%9E%90"><span class="toc-number">1.10.1.2.</span> <span class="toc-text">10.1.2 误差分析</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-2-%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%A3%80%E9%AA%8C"><span class="toc-number">1.10.2.</span> <span class="toc-text">10.2 模型的检验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%84%E4%BB%B7%E3%80%81%E6%94%B9%E8%BF%9B%E4%B8%8E%E6%8E%A8%E5%B9%BF"><span class="toc-number">1.11.</span> <span class="toc-text">十一、模型的评价、改进与推广</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#11-1-%E4%B8%89%E4%B8%AA%E9%83%A8%E5%88%86%E5%86%99%E4%BB%80%E4%B9%88%E5%86%85%E5%AE%B9%EF%BC%9F"><span class="toc-number">1.11.1.</span> <span class="toc-text">11.1 三个部分写什么内容？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#11-1-1-%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%84%E4%BB%B7"><span class="toc-number">1.11.1.1.</span> <span class="toc-text">11.1.1 模型的评价</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-1-2-%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%94%B9%E8%BF%9B"><span class="toc-number">1.11.1.2.</span> <span class="toc-text">11.1.2 模型的改进</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-1-3-%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%8E%A8%E5%B9%BF"><span class="toc-number">1.11.1.3.</span> <span class="toc-text">11.1.3 模型的推广</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">1.12.</span> <span class="toc-text">十二、参考文献</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#12-1-%E5%B8%B8%E8%A7%81%E7%9A%84%E4%B8%89%E7%A7%8D%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE%E8%A1%A8%E8%BE%BE%E6%96%B9%E5%BC%8F"><span class="toc-number">1.12.1.</span> <span class="toc-text">12.1 常见的三种参考文献表达方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-2-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">1.12.2.</span> <span class="toc-text">12.2 注意事项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%89%E3%80%81%E9%99%84%E5%BD%95"><span class="toc-number">1.13.</span> <span class="toc-text">十三、附录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#13-1-%E6%94%AF%E6%92%91%E6%9D%90%E6%96%99%E5%86%85%E5%AE%B9"><span class="toc-number">1.13.1.</span> <span class="toc-text">13.1 支撑材料内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E5%9B%9B%E3%80%81%E8%AE%BA%E6%96%87%E6%8E%92%E7%89%88"><span class="toc-number">1.14.</span> <span class="toc-text">十四、论文排版</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%BA%94%E3%80%81LaTeX-%E4%BD%BF%E7%94%A8"><span class="toc-number">1.15.</span> <span class="toc-text">十五、LaTeX 使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#15-1-%E5%B8%A6%E7%BC%96%E5%8F%B7%E5%85%AC%E5%BC%8F"><span class="toc-number">1.15.1.</span> <span class="toc-text">15.1 带编号公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-2-%E5%B8%A6%E7%BC%96%E5%8F%B7%E7%9A%84%E5%9B%BE%E7%89%87"><span class="toc-number">1.15.2.</span> <span class="toc-text">15.2 带编号的图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-3-%E5%BC%95%E7%94%A8"><span class="toc-number">1.15.3.</span> <span class="toc-text">15.3 引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-4-%E5%B8%A6%E7%BC%96%E5%8F%B7%E7%9A%84%E8%A1%A8%E6%A0%BC"><span class="toc-number">1.15.4.</span> <span class="toc-text">15.4 带编号的表格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-5-%E5%8F%8C%E5%9B%BE%E6%A8%A1%E6%9D%BF"><span class="toc-number">1.15.5.</span> <span class="toc-text">15.5 双图模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-6-%E2%80%9C%E5%85%B6%E4%B8%AD%E2%80%9D%E7%9A%84%E5%86%99%E6%B3%95"><span class="toc-number">1.15.6.</span> <span class="toc-text">15.6 “其中”的写法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-7-%E5%9B%9B%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-number">1.15.7.</span> <span class="toc-text">15.7 四级标题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-8-%E5%86%B3%E7%AD%96%E5%8F%98%E9%87%8F"><span class="toc-number">1.15.8.</span> <span class="toc-text">15.8 决策变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-9-%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0%E4%B8%8E%E7%BA%A6%E6%9D%9F%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.15.9.</span> <span class="toc-text">15.9 目标函数与约束条件</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/08/19/%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82/" title="无标题">无标题</a><time datetime="2026-08-19T11:46:15.410Z" title="发表于 2026-08-19 19:46:15">2026-08-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/08/02/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/" title="数学建模论文写作"><img src="https://draft-to-blog-1251234567-1302558010.cos.ap-guangzhou.myqcloud.com/draft-to-blog/image-68.png?v=20260816" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数学建模论文写作"/></a><div class="content"><a class="title" href="/2026/08/02/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/" title="数学建模论文写作">数学建模论文写作</a><time datetime="2026-08-02T08:25:44.000Z" title="发表于 2026-08-02 16:25:44">2026-08-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/15/edge-tts%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90%E6%8C%87%E4%BB%A4%E6%B1%87%E6%80%BB/" title="用 edge-tts 把文字变成语音（含可用语音库与交互脚本）">用 edge-tts 把文字变成语音（含可用语音库与交互脚本）</a><time datetime="2024-12-15T09:51:09.000Z" title="发表于 2024-12-15 17:51:09">2024-12-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/25/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" title="最小生成树">最小生成树</a><time datetime="2024-10-25T09:05:35.000Z" title="发表于 2024-10-25 17:05:35">2024-10-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/20/%E4%BD%BF%E7%94%A8github%20pages+hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="使用 GitHub Pages + Hexo 搭建博客">使用 GitHub Pages + Hexo 搭建博客</a><time datetime="2024-10-20T07:20:00.000Z" title="发表于 2024-10-20 15:20:00">2024-10-20</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2024 - 2026 By chenxi34</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.0.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.1</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.1"></script><script src="/js/main.js?v=5.5.1"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
