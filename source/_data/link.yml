@@ -1,0 +1,23 @@
+- class_name: 友链
+  class_desc:
+  link_list:
+    - name: 竹林里有冰
+      link: https://zhul.in/
+    - name: 派大星的石头屋
+      link: https://blog.cnpatrickstar.com/
+    - name: 白糖的记事本
+      link: https://blog.sugarmgp.cn/
+    - name: MangoGovo's Blog
+      link: https://blog.mggovo.cn/
+    - name: 惜寞
+      link: https://www.lonesome.cn/
+    - name: 青鸟のBlog
+      link: https://blog.bluebird.icu/
+    - name: Finley Ge
+      link: https://www.f1nley.xyz/zh
+    - name: 折乙
+      link: https://zheyi.in/
+    - name: 消失在彩霞里的Blog
+      link: https://blog.tidechoir.cn/
+    - name: Tiancy
+      link: https://blog.tiancy.cn/
