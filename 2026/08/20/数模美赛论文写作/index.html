@@ -1,0 +1,355 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>数模美赛论文写作：数据查找、画图与备赛资源整理 | 沉汐 DevLog</title><meta name="author" content="chenxi34"><meta name="copyright" content="chenxi34"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="整理数模美赛备赛中的论文写作框架、数据查找渠道、可视化工具、缺失数据处理方法与常见写作要点，适合作为赛前复习和建模写作检查清单。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数模美赛论文写作：数据查找、画图与备赛资源整理">
+<meta property="og:url" content="https://blog.chenxi34.top/2026/08/20/%E6%95%B0%E6%A8%A1%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/index.html">
+<meta property="og:site_name" content="沉汐 DevLog">
+<meta property="og:description" content="整理数模美赛备赛中的论文写作框架、数据查找渠道、可视化工具、缺失数据处理方法与常见写作要点，适合作为赛前复习和建模写作检查清单。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/d57f8ae3.png">
+<meta property="article:published_time" content="2026-08-20T09:18:35.000Z">
+<meta property="article:modified_time" content="2026-08-20T09:18:35.000Z">
+<meta property="article:author" content="chenxi34">
+<meta property="article:tag" content="数据源">
+<meta property="article:tag" content="数据补全">
+<meta property="article:tag" content="数模美赛">
+<meta property="article:tag" content="论文写作">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/d57f8ae3.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "数模美赛论文写作：数据查找、画图与备赛资源整理",
+  "url": "https://blog.chenxi34.top/2026/08/20/%E6%95%B0%E6%A8%A1%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/",
+  "image": "https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/d57f8ae3.png",
+  "datePublished": "2026-08-20T09:18:35.000Z",
+  "dateModified": "2026-08-20T09:18:35.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "chenxi34",
+      "url": "https://blog.chenxi34.top"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://blog.chenxi34.top/2026/08/20/%E6%95%B0%E6%A8%A1%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '数模美赛论文写作：数据查找、画图与备赛资源整理',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.0.0"></head><body><div id="web_bg" style="background-image: url(/img/background.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/d57f8ae3.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">沉汐 DevLog</span></a><a class="nav-page-title" href="/"><span class="site-name">数模美赛论文写作：数据查找、画图与备赛资源整理</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">数模美赛论文写作：数据查找、画图与备赛资源整理</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-08-20T09:18:35.000Z" title="发表于 2026-08-20 17:18:35">2026-08-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-08-20T09:18:35.000Z" title="更新于 2026-08-20 17:18:35">2026-08-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E5%AD%A6%E6%9C%AF%E5%86%99%E4%BD%9C/">学术写作</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="🛠️-工具与数据源速查"><a href="#🛠️-工具与数据源速查" class="headerlink" title="🛠️ 工具与数据源速查"></a>🛠️ 工具与数据源速查</h2><h3 id="数据分析与可视化"><a href="#数据分析与可视化" class="headerlink" title="数据分析与可视化"></a>数据分析与可视化</h3><ul>
+<li><strong>Excel</strong>：数据分析与精美走势图。</li>
+<li><strong>SPSS</strong>：专业统计模型分析。</li>
+<li><strong>Origin</strong>：强大的科研数据可视化与拟合。</li>
+<li><strong>Echarts &#x2F; Hiplot</strong>：强烈推荐的在线图表库。</li>
+<li><strong>Lingo</strong>：线性与通用优化求解器（规划模型）。</li>
+<li><strong>Matlab &#x2F; Python</strong>：交互式编程平台，整合算法与工具库。</li>
+</ul>
+<h3 id="文献阅读与翻译"><a href="#文献阅读与翻译" class="headerlink" title="文献阅读与翻译"></a>文献阅读与翻译</h3><ul>
+<li><strong>知云文献阅读器</strong>：阅读与翻译一体化。</li>
+<li><strong>DeepL</strong>：高质量机器翻译，效果优于传统翻译器。</li>
+</ul>
+<h3 id="绘图与展示"><a href="#绘图与展示" class="headerlink" title="绘图与展示"></a>绘图与展示</h3><ul>
+<li><strong>VISIO &#x2F; 亿图</strong>：流程图、结构图、系统图。</li>
+<li><strong>Axure &#x2F; 小yph</strong>：专业矢量绘图，适合界面与结构示意。</li>
+<li><strong>Excel &#x2F; PPT</strong>：也可绘制美观统计图。</li>
+</ul>
+<h3 id="📊-综合性数据平台"><a href="#📊-综合性数据平台" class="headerlink" title="📊 综合性数据平台"></a>📊 综合性数据平台</h3><ul>
+<li><strong>CNKI 知网</strong>：<a target="_blank" rel="noopener" href="https://data.cnki.net/">https://data.cnki.net/</a> - 提供经济、社会、金融等权威统计数据。</li>
+<li><strong>199IT 大数据导航</strong>：<a target="_blank" rel="noopener" href="http://hao.199it.com/">http://hao.199it.com/</a> - 全球主要数据来源导航，汇聚各国统计局、世行等入口。</li>
+<li><strong>EPSDATA</strong>：<a target="_blank" rel="noopener" href="https://www.epsnet.com.cn/">https://www.epsnet.com.cn/</a> - 宏观经济、区域发展等多维度数据。</li>
+<li><strong>UNdata</strong>：<a target="_blank" rel="noopener" href="https://data.un.org/">https://data.un.org/</a> - 联合国官方统计数据库。</li>
+</ul>
+<h3 id="🌍-国际与开放数据源"><a href="#🌍-国际与开放数据源" class="headerlink" title="🌍 国际与开放数据源"></a>🌍 国际与开放数据源</h3><ul>
+<li><strong>Awesome Public Datasets</strong>：<a target="_blank" rel="noopener" href="https://github.com/awesomedata/awesome-public-datasets">https://github.com/awesomedata/awesome-public-datasets</a> - 社区维护优质公共数据集，覆盖多领域。</li>
+<li><strong>ICPSR</strong>：<a target="_blank" rel="noopener" href="https://www.icpsr.umich.edu/">https://www.icpsr.umich.edu/</a> - 密歇根大学社会科学数据存档。</li>
+<li><strong>Our World in Data</strong>：<a target="_blank" rel="noopener" href="https://ourworldindata.org/">https://ourworldindata.org/</a> - 牛津大学开放数据项目，支持在线可视化。</li>
+</ul>
+<h3 id="💡-机器学习与数据竞赛平台"><a href="#💡-机器学习与数据竞赛平台" class="headerlink" title="💡 机器学习与数据竞赛平台"></a>💡 机器学习与数据竞赛平台</h3><ul>
+<li><strong>Kaggle</strong>：<a target="_blank" rel="noopener" href="https://www.kaggle.com/datasets">https://www.kaggle.com/datasets</a> - 全球知名数据科学社区，海量公开数据集。</li>
+<li><strong>天池数据集</strong>：<a target="_blank" rel="noopener" href="https://tianchi.aliyun.com/dataset/">https://tianchi.aliyun.com/dataset/</a> - 阿里云行业实战数据集（金融、医疗等）。</li>
+</ul>
+<hr>
+<h2 id="🧩-缺失数据怎么补？（”编数据”技巧）"><a href="#🧩-缺失数据怎么补？（”编数据”技巧）" class="headerlink" title="🧩 缺失数据怎么补？（”编数据”技巧）"></a>🧩 缺失数据怎么补？（”编数据”技巧）</h2><ol>
+<li><strong>插值补全法</strong>：适用于缺失值少。常用线性插值、样条插值、多项式拟合、移动平均法。（💡 工具：Excel、Python <code>pandas.interpolate()</code>、R）</li>
+<li><strong>语义&#x2F;逻辑建模法</strong>：根据逻辑推导合理趋势，确保符合客观规律。可用回归模型、系统动力学等构造虚拟数据。（📘 示例：若”GDP年增5%”，可用指数增长模型生成模拟数据）</li>
+<li><strong>AI 工具生成</strong>：用 GPT 生成符合逻辑的数据表，生成后需人工核查合理性并注明来源为合成数据。<blockquote>
+<p>🧠 <strong>Prompt 示例</strong>：帮我生成一组 2010–2024 年的中国 GDP、CPI、进出口数据，要求符合现实增长趋势，带上单位。</p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<h2 id="⏰-竞赛时间线"><a href="#⏰-竞赛时间线" class="headerlink" title="⏰ 竞赛时间线"></a>⏰ 竞赛时间线</h2><ul>
+<li><strong>报名截止</strong>：2月5日 04:00 (北京时间)</li>
+<li><strong>竞赛开始</strong>：2月5日 06:00 (腊月二十四)</li>
+<li><strong>竞赛截止</strong>：2月9日 09:00 (建议06:00前交)</li>
+<li><strong>论文提交截止</strong>：2月9日 10:00 (切勿卡点，防邮箱拥堵)</li>
+<li><strong>竞赛结果</strong>：4月30日前</li>
+</ul>
+<hr>
+<h2 id="📝-论文写作框架与核心要点"><a href="#📝-论文写作框架与核心要点" class="headerlink" title="📝 论文写作框架与核心要点"></a>📝 论文写作框架与核心要点</h2><p><img src="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/d57f8ae3.png" alt="? 1"></p>
+<h3 id="Summary-Sheet（摘要页）"><a href="#Summary-Sheet（摘要页）" class="headerlink" title="Summary Sheet（摘要页）"></a>Summary Sheet（摘要页）</h3><p>写法同国赛。</p>
+<p><img src="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/df7565f0.webp" alt="? 2"></p>
+<h3 id="标题与关键词"><a href="#标题与关键词" class="headerlink" title="标题与关键词"></a>标题与关键词</h3><p><strong>标题三种写法：</strong></p>
+<ol>
+<li><strong>基于主要模型&#x2F;方法</strong>：如 <em>An Integrated Production–Waste–Harm Model Based on…</em> （注意介词小写，如 of, on, at, in）</li>
+<li><strong>直接使用赛题题目&#x2F;研究问题</strong>：如 <em>Global Disposable Plastic Waste Crisis</em></li>
+<li><strong>简短创意型</strong>（偏社会&#x2F;经济&#x2F;文化）：如 <em>The Wandering Homeland</em> 或 <em>NOT ME, US!</em></li>
+</ol>
+<p><strong>关键词（Keywords）</strong>：一般选 3-6 个，可放模型、方法名或论文核心内容词。部分论文不写，但建议加上。</p>
+<h3 id="Contents（目录）"><a href="#Contents（目录）" class="headerlink" title="Contents（目录）"></a>Contents（目录）</h3><p><img src="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/724f9dc1.png" alt="? 3"></p>
+<h3 id="Introduction（引言）"><a href="#Introduction（引言）" class="headerlink" title="Introduction（引言）"></a>Introduction（引言）</h3><p><strong>Background（背景）</strong>：总结题目背景及自查资料，切忌照搬原题。<strong>小技巧</strong>：美赛问题较开放，背景介绍可侧重往自己的研究方向靠拢。</p>
+<p><strong>Restatement of the Problem（问题重述）</strong>：用简明扼要的语言重述问题，绝不可照抄原题！</p>
+<blockquote>
+<p><strong>通用模板</strong>：<br>Considering the background information and restricted conditions identified in the problem statement, we need to solve the following problems:</p>
+<ul>
+<li>Problem 1</li>
+<li>Problem 2</li>
+<li>Problem 3</li>
+</ul>
+</blockquote>
+<p><strong>AI 辅助 Prompt</strong>：</p>
+<blockquote>
+<p>你是一位数学建模高手，这是数学建模美赛，请根据问题原背景和问题要求以及格式c和要求b，用英文写Introduction的Background和Restatement of the Problem部分。</p>
+</blockquote>
+<hr>
+<h3 id="文献综述-Literature-Review"><a href="#文献综述-Literature-Review" class="headerlink" title="文献综述 Literature Review"></a>文献综述 Literature Review</h3><p><strong>核心内容三方面：</strong></p>
+<ol>
+<li><strong>前人研究方向</strong>：有哪些学者研究过。（💡 <em>Many researchers have focused on modeling…</em>）</li>
+<li><strong>前人方法与结论</strong>：用了什么方法，得出什么结果。（💡 <em>Duch et al. used the method of…</em>）</li>
+<li><strong>与本文关联</strong>：前人研究提供的启发。（💡 <em>Their findings provided a foundation for…</em>）</li>
+</ol>
+<p><strong>写作注意</strong>：</p>
+<ul>
+<li>规范引用标注：上标 <code>[1], [2]</code>。</li>
+<li>语气客观中立，避免评价性词汇（如”很好”、”错误”）。</li>
+<li>逻辑衔接自然，与自身研究呼应，不可”断层”。</li>
+</ul>
+<p><strong>AI 辅助 Prompt</strong>：</p>
+<blockquote>
+<p>请帮我撰写一段英文的Literature Review，用于数学建模论文，要求：主题：[填写具体题目]；内容包括：前人主要研究方向、使用方法、取得结论；最后指出这些研究为本文提供的启发；保持正式学术语气，长度约200字。</p>
+</blockquote>
+<p><img src="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/e2bc0845.png" alt="? 4"><br><img src="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/0f789624.png" alt="? 5"><br><img src="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/31a1bf11.png" alt="? 6"><br><img src="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/9e685220.png" alt="? 7"><br><img src="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/93e3b781.png" alt="? 8"><br><img src="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/fbd07913.png" alt="? 9"><br><img src="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/c62cf968.png" alt="? 10"><br><img src="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/44f8eaa8.png" alt="? 11"><br><img src="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/51a96a4b.png" alt="? 12"><br><img src="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/b309be87.png" alt="? 13"></p>
+<h3 id="Assumptions-and-Justifications（模型假设与合理性验证）"><a href="#Assumptions-and-Justifications（模型假设与合理性验证）" class="headerlink" title="Assumptions and Justifications（模型假设与合理性验证）"></a>Assumptions and Justifications（模型假设与合理性验证）</h3><p>美赛对此部分评分极严，<strong>所有用到的条件、前提、数据简化均需清晰列出并论证合理性</strong>。若不合理或解释不充分，评委会要求重新思考。</p>
+<p><strong>假设常见类型</strong>：点击图片可查看完整电子表格。</p>
+<p><strong>合理性论证角度</strong>：</p>
+<ul>
+<li>现实依据（如”根据统计规律…”、”根据经验观察…”等）### 模型假设与合理性论证</li>
+</ul>
+<p>在数学建模中，提出假设需包含三大要素：<strong>理论支持</strong>（如基于牛顿第二定律）、<strong>可行性解释</strong>（如受数据限制所作的近似）以及<strong>对模型影响的说明</strong>（如该简化不影响主要结论）。</p>
+<h4 id="✅-示例解析"><a href="#✅-示例解析" class="headerlink" title="✅ 示例解析"></a>✅ 示例解析</h4><p><strong>示例 1：假设的提出与论证</strong></p>
+<blockquote>
+<p><strong>Assumption:</strong> The criminal’s movement is not constrained.<br><strong>Justification:</strong> Although in reality criminals move within a city grid limited by streets and buildings, we approximate this by a “Manhattan Grid” layout. This simplification allows modeling the movement along grid edges, which corresponds closely to real-world paths.</p>
+</blockquote>
+<p><em>解析</em>：明确假设条件 → 说明实际与理想的差别 → 提出合理简化方法 → 强调假设与现实相符的逻辑。</p>
+<p><strong>示例 2：2020年美赛优秀论文节选</strong></p>
+<blockquote>
+<p><strong>Assumption 1:</strong> Data involving only actions on the ball are sufficient to model football gameplay.<br><strong>Justification:</strong> Though we do not know every player’s exact position, actions on the ball reveal enough about the team’s structure and performance. It is widely accepted that controlling the ball reflects effective play; thus, this assumption is reasonable.</p>
+</blockquote>
+<p><em>解析</em>：限定数据范围 → 说明限制仍具代表性 → 用领域知识支撑可行性 → 突出核心逻辑。</p>
+<h4 id="✍️-写作技巧与-Prompt-模板"><a href="#✍️-写作技巧与-Prompt-模板" class="headerlink" title="✍️ 写作技巧与 Prompt 模板"></a>✍️ 写作技巧与 Prompt 模板</h4><p><strong>写作规范：</strong></p>
+<ol>
+<li>逐条编号列出假设（Assumption 1, 2, 3…）；</li>
+<li>每条假设后紧跟合理性解释；</li>
+<li>格式统一，逻辑连贯；</li>
+<li>使用正式学术表达，如：<ul>
+<li><em>We assume that…</em></li>
+<li><em>This assumption is reasonable because…</em></li>
+<li><em>This simplification allows us to…</em></li>
+<li><em>In practice, this assumption is widely accepted…</em></li>
+</ul>
+</li>
+</ol>
+<p><strong>AI 辅助写作 Prompt 模板：</strong></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">请帮我为关于[问题名称]的数学建模论文撰写“模型假设与合理性论证”部分，要求：</span><br><span class="line">1. 先列出3~5条关键假设；</span><br><span class="line">2. 每条都包含合理性解释；</span><br><span class="line">3. 保持正式学术风格，语言清晰简洁。</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/02831cd6.webp" alt="? 14"></p>
+<p><img src="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/afb8b3f8.webp" alt="? 15"></p>
+<p><img src="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/21d2cb72.webp" alt="? 16"></p>
+<hr>
+<h3 id="符号说明"><a href="#符号说明" class="headerlink" title="符号说明"></a>符号说明</h3><p>符号说明部分应以表格形式呈现，包含符号、含义和单位三列。若无单位，用短横线“–”代替。表格上方需添加说明语：“Important notations used in this paper are listed in Table 1”。</p>
+<p><strong>AI 辅助写作 Prompt 模板：</strong></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">请帮我撰写一份数学建模论文中的 Notations（符号说明）部分，要求如下：</span><br><span class="line">1. 以表格形式列出符号、含义和单位；</span><br><span class="line">2. 第一列为符号，第二列为含义说明，第三列为单位，无单位用“–”代替；</span><br><span class="line">3. 表格上方添加一句说明：“Important notations used in this paper are listed in Table 1”；</span><br><span class="line">4. 用正式、简洁的英文撰写，排版整齐美观。</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/a3a5a14d.webp" alt="? 17"></p>
+<p><img src="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/d4beaeac.webp" alt="? 18"></p>
+<hr>
+<h3 id="论文主体结构"><a href="#论文主体结构" class="headerlink" title="论文主体结构"></a>论文主体结构</h3><p>标准的数学建模论文主体通常按问题拆分，并辅以必要的分析与总结：</p>
+<ol>
+<li><strong>The name of model 1（模型1的建立和求解）</strong>：用于解决题目中的第一个问题。</li>
+</ol>
+<p><img src="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/7ca819fd.png" alt="? 19"></p>
+<p><img src="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/10844f73.png" alt="? 20"></p>
+<p><img src="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/8d021a5b.png" alt="? 21"></p>
+<ol start="2">
+<li><strong>The name of model 2（模型2的建立和求解）</strong>：用于解决题目中的第二个问题。</li>
+<li><strong>The name of model 3（模型3的建立和求解）</strong>：用于解决题目中的第三个问题。</li>
+<li><strong>Sensitivity Analysis（灵敏度分析）</strong></li>
+<li><strong>Model Evaluation and Further Discussion（模型的评价和进一步的讨论）</strong></li>
+<li><strong>Conclusion（结论）</strong></li>
+<li><strong>References（参考文献）</strong></li>
+<li><strong>Appendices（附录）</strong></li>
+</ol>
+<hr>
+<h3 id="🧩-美赛论文写作与建模八步法"><a href="#🧩-美赛论文写作与建模八步法" class="headerlink" title="🧩 美赛论文写作与建模八步法"></a>🧩 美赛论文写作与建模八步法</h3><h4 id="1-学会模仿：模仿-O-奖论文"><a href="#1-学会模仿：模仿-O-奖论文" class="headerlink" title="1. 学会模仿：模仿 O 奖论文"></a>1. 学会模仿：模仿 O 奖论文</h4><p>学习优秀论文的结构、逻辑和表达方式，从高质量作品中提炼思路。</p>
+<h4 id="2-选好题目：选择最适合你们的题目"><a href="#2-选好题目：选择最适合你们的题目" class="headerlink" title="2. 选好题目：选择最适合你们的题目"></a>2. 选好题目：选择最适合你们的题目</h4><p>根据团队能力、数据可得性、兴趣和创新点挑选题目。</p>
+<p><img src="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/b7950b51.png" alt="? 22"></p>
+<h4 id="3-写好标题：适当地生动一些"><a href="#3-写好标题：适当地生动一些" class="headerlink" title="3. 写好标题：适当地生动一些"></a>3. 写好标题：适当地生动一些</h4><p>标题需简洁明了、吸引人，且准确反映研究主题。美赛 O 奖论文中常规标题较少，多采用以下更有吸引力的形式：</p>
+<ul>
+<li><strong>两段式</strong>：Crack the Wordle Puzzle: Word Attribute Analysis Approaches（破解 Wordle 之谜：词语属性分析方法）</li>
+<li><strong>有吸引力的</strong>：Uncover the Hidden Secrets in Wordle Results（揭开 Wordle 结果中隐藏的秘密）</li>
+<li><strong>简约的</strong>：Winners in Wordle（Wordle 中的获奖者）</li>
+<li><strong>常规的</strong>：Viral Spread Characteristics and Difficulty Determinants of Wordle Modeling Based on Differential Equations and K-nearest Neighbors</li>
+</ul>
+<h4 id="4-着重摘要：美赛初评主要看摘要质量"><a href="#4-着重摘要：美赛初评主要看摘要质量" class="headerlink" title="4. 着重摘要：美赛初评主要看摘要质量"></a>4. 着重摘要：美赛初评主要看摘要质量</h4><p><strong>常用模板：</strong></p>
+<ul>
+<li><strong>开头段</strong>：针对什么问题，建立了什么模型。</li>
+<li><strong>针对问题一</strong>：建立的模型 + 求解的过程 + 得到的数值 + 意义。</li>
+<li><strong>针对问题二</strong>：同上。</li>
+<li><strong>针对问题三</strong>：同上。</li>
+<li><strong>结尾总结段</strong>：模型的优缺点、灵敏度分析等，以及可以改进的方面（非必要）。</li>
+</ul>
+<p><strong>要点提示：</strong></p>
+<ul>
+<li>模型名称、算法名称、关键变量、模型结果常常要<strong>加粗</strong>；</li>
+<li>摘要页应<strong>控制在一页内</strong>。</li>
+</ul>
+<p><strong>注意事项：</strong></p>
+<ul>
+<li>模型算法的<strong>专有名词不能错</strong>；</li>
+<li>每一个小问都要给出<strong>明确的结果</strong>（包括数值或文字描述）；</li>
+<li>每一个关键模型都要结合题目描述<strong>如何设置参数和求解</strong>；</li>
+<li>语言简洁精炼，逻辑必须清晰，方便评委快速定位模型与结果。</li>
+</ul>
+<h4 id="5-模型建立与求解：模型要结合问题，算法要有优越性"><a href="#5-模型建立与求解：模型要结合问题，算法要有优越性" class="headerlink" title="5. 模型建立与求解：模型要结合问题，算法要有优越性"></a>5. 模型建立与求解：模型要结合问题，算法要有优越性</h4><p>模型需贴合实际问题，并选择恰当或改进的算法进行求解。</p>
+<p><img src="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/47da2362.png" alt="? 23"></p>
+<h4 id="6-结果分析：分析到位，表格要引用"><a href="#6-结果分析：分析到位，表格要引用" class="headerlink" title="6. 结果分析：分析到位，表格要引用"></a>6. 结果分析：分析到位，表格要引用</h4><p>得到结果后必须对结果进行详细分析，不仅要给出结果，还要解释原因、验证可靠性。</p>
+<p><img src="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/5d06232b.png" alt="? 24"></p>
+<h4 id="7-灵敏度分析：结合图表，有图有分析"><a href="#7-灵敏度分析：结合图表，有图有分析" class="headerlink" title="7. 灵敏度分析：结合图表，有图有分析"></a>7. 灵敏度分析：结合图表，有图有分析</h4><p>利用图表展示结果变化和趋势，增强说服力，美赛对此较为注重。</p>
+<h4 id="8-学会包装：美化绘图，做好排版"><a href="#8-学会包装：美化绘图，做好排版" class="headerlink" title="8. 学会包装：美化绘图，做好排版"></a>8. 学会包装：美化绘图，做好排版</h4><p>图文并茂、排版整洁，整体视觉效果专业美观。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://blog.chenxi34.top">chenxi34</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://blog.chenxi34.top/2026/08/20/%E6%95%B0%E6%A8%A1%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/">https://blog.chenxi34.top/2026/08/20/%E6%95%B0%E6%A8%A1%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://blog.chenxi34.top" target="_blank">沉汐 DevLog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%A8%A1%E7%BE%8E%E8%B5%9B/">数模美赛</a><a class="post-meta__tags" href="/tags/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/">论文写作</a><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E6%BA%90/">数据源</a><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E8%A1%A5%E5%85%A8/">数据补全</a></div><div class="post-share"><div class="social-share" data-image="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/d57f8ae3.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2026/08/02/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/" title="数学建模论文写作"><img class="cover" src="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/8dad8ed2.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">数学建模论文写作</div></div><div class="info-2"><div class="info-item-1">一、写作方法1.1 论文标题 标题可以基于所使用的主要模型或方法来拟定，长度一般不超过 20 字。  也可以直接使用赛题问题作为标题。 二、摘要写作2.1 摘要的定义、作用与要求什么是摘要： 摘要是对论文内容的一份简短陈述，不能超过一页。 摘要的作用： 使读者或评委在不阅读论文全文的情况下就能获得必要的信息。 摘要需要包含的三要素： 解决了什么问题；应用了什么方法；得到了什么结果。 摘要书写的特点： 摘要需充分概括论文内容，文字必须十分简练，书写时应注意突出论文的新见解、新方法和特色，陈述要客观，不能带有主观性。 摘要的重要性： 摘要是数模论文写作中最重要的部分之一。评阅老师的时间有限（通常每篇约 15 分钟），不会完整地从头读到尾，因此往往会重点阅读摘要，并结合官方评阅要点对论文进行初步评定。因此，摘要应在论文其他部分完成后再集中撰写，并进行多轮修改。 2.2 摘要样例  篇幅： 首页一大半，1000字左右 写法： 第一段： 需要充分概括论文内容，一般两到三句话即可， 长度控制在三至五行。 第一句话可以简单交代下题目的背景（可选） 第二句话交代本文所做的工作（必须） 第三句话可...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">chenxi34</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/chenxi34"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9B%A0%EF%B8%8F-%E5%B7%A5%E5%85%B7%E4%B8%8E%E6%95%B0%E6%8D%AE%E6%BA%90%E9%80%9F%E6%9F%A5"><span class="toc-text">🛠️ 工具与数据源速查</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-text">数据分析与可视化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%E4%B8%8E%E7%BF%BB%E8%AF%91"><span class="toc-text">文献阅读与翻译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%98%E5%9B%BE%E4%B8%8E%E5%B1%95%E7%A4%BA"><span class="toc-text">绘图与展示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%8A-%E7%BB%BC%E5%90%88%E6%80%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0"><span class="toc-text">📊 综合性数据平台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8C%8D-%E5%9B%BD%E9%99%85%E4%B8%8E%E5%BC%80%E6%94%BE%E6%95%B0%E6%8D%AE%E6%BA%90"><span class="toc-text">🌍 国际与开放数据源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%A1-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%AB%9E%E8%B5%9B%E5%B9%B3%E5%8F%B0"><span class="toc-text">💡 机器学习与数据竞赛平台</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%A9-%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE%E6%80%8E%E4%B9%88%E8%A1%A5%EF%BC%9F%EF%BC%88%E2%80%9D%E7%BC%96%E6%95%B0%E6%8D%AE%E2%80%9D%E6%8A%80%E5%B7%A7%EF%BC%89"><span class="toc-text">🧩 缺失数据怎么补？（”编数据”技巧）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%8F%B0-%E7%AB%9E%E8%B5%9B%E6%97%B6%E9%97%B4%E7%BA%BF"><span class="toc-text">⏰ 竞赛时间线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%9D-%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E6%A1%86%E6%9E%B6%E4%B8%8E%E6%A0%B8%E5%BF%83%E8%A6%81%E7%82%B9"><span class="toc-text">📝 论文写作框架与核心要点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Summary-Sheet%EF%BC%88%E6%91%98%E8%A6%81%E9%A1%B5%EF%BC%89"><span class="toc-text">Summary Sheet（摘要页）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E9%A2%98%E4%B8%8E%E5%85%B3%E9%94%AE%E8%AF%8D"><span class="toc-text">标题与关键词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Contents%EF%BC%88%E7%9B%AE%E5%BD%95%EF%BC%89"><span class="toc-text">Contents（目录）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Introduction%EF%BC%88%E5%BC%95%E8%A8%80%EF%BC%89"><span class="toc-text">Introduction（引言）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%8C%AE%E7%BB%BC%E8%BF%B0-Literature-Review"><span class="toc-text">文献综述 Literature Review</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Assumptions-and-Justifications%EF%BC%88%E6%A8%A1%E5%9E%8B%E5%81%87%E8%AE%BE%E4%B8%8E%E5%90%88%E7%90%86%E6%80%A7%E9%AA%8C%E8%AF%81%EF%BC%89"><span class="toc-text">Assumptions and Justifications（模型假设与合理性验证）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%9C%85-%E7%A4%BA%E4%BE%8B%E8%A7%A3%E6%9E%90"><span class="toc-text">✅ 示例解析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%9C%8D%EF%B8%8F-%E5%86%99%E4%BD%9C%E6%8A%80%E5%B7%A7%E4%B8%8E-Prompt-%E6%A8%A1%E6%9D%BF"><span class="toc-text">✍️ 写作技巧与 Prompt 模板</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%A6%E5%8F%B7%E8%AF%B4%E6%98%8E"><span class="toc-text">符号说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E4%B8%BB%E4%BD%93%E7%BB%93%E6%9E%84"><span class="toc-text">论文主体结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A7%A9-%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E4%B8%8E%E5%BB%BA%E6%A8%A1%E5%85%AB%E6%AD%A5%E6%B3%95"><span class="toc-text">🧩 美赛论文写作与建模八步法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%AD%A6%E4%BC%9A%E6%A8%A1%E4%BB%BF%EF%BC%9A%E6%A8%A1%E4%BB%BF-O-%E5%A5%96%E8%AE%BA%E6%96%87"><span class="toc-text">1. 学会模仿：模仿 O 奖论文</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E9%80%89%E5%A5%BD%E9%A2%98%E7%9B%AE%EF%BC%9A%E9%80%89%E6%8B%A9%E6%9C%80%E9%80%82%E5%90%88%E4%BD%A0%E4%BB%AC%E7%9A%84%E9%A2%98%E7%9B%AE"><span class="toc-text">2. 选好题目：选择最适合你们的题目</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%86%99%E5%A5%BD%E6%A0%87%E9%A2%98%EF%BC%9A%E9%80%82%E5%BD%93%E5%9C%B0%E7%94%9F%E5%8A%A8%E4%B8%80%E4%BA%9B"><span class="toc-text">3. 写好标题：适当地生动一些</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E7%9D%80%E9%87%8D%E6%91%98%E8%A6%81%EF%BC%9A%E7%BE%8E%E8%B5%9B%E5%88%9D%E8%AF%84%E4%B8%BB%E8%A6%81%E7%9C%8B%E6%91%98%E8%A6%81%E8%B4%A8%E9%87%8F"><span class="toc-text">4. 着重摘要：美赛初评主要看摘要质量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%A8%A1%E5%9E%8B%E5%BB%BA%E7%AB%8B%E4%B8%8E%E6%B1%82%E8%A7%A3%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%A6%81%E7%BB%93%E5%90%88%E9%97%AE%E9%A2%98%EF%BC%8C%E7%AE%97%E6%B3%95%E8%A6%81%E6%9C%89%E4%BC%98%E8%B6%8A%E6%80%A7"><span class="toc-text">5. 模型建立与求解：模型要结合问题，算法要有优越性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90%EF%BC%9A%E5%88%86%E6%9E%90%E5%88%B0%E4%BD%8D%EF%BC%8C%E8%A1%A8%E6%A0%BC%E8%A6%81%E5%BC%95%E7%94%A8"><span class="toc-text">6. 结果分析：分析到位，表格要引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E7%81%B5%E6%95%8F%E5%BA%A6%E5%88%86%E6%9E%90%EF%BC%9A%E7%BB%93%E5%90%88%E5%9B%BE%E8%A1%A8%EF%BC%8C%E6%9C%89%E5%9B%BE%E6%9C%89%E5%88%86%E6%9E%90"><span class="toc-text">7. 灵敏度分析：结合图表，有图有分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E5%AD%A6%E4%BC%9A%E5%8C%85%E8%A3%85%EF%BC%9A%E7%BE%8E%E5%8C%96%E7%BB%98%E5%9B%BE%EF%BC%8C%E5%81%9A%E5%A5%BD%E6%8E%92%E7%89%88"><span class="toc-text">8. 学会包装：美化绘图，做好排版</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/08/20/%E6%95%B0%E6%A8%A1%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/" title="数模美赛论文写作：数据查找、画图与备赛资源整理"><img src="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/d57f8ae3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数模美赛论文写作：数据查找、画图与备赛资源整理"/></a><div class="content"><a class="title" href="/2026/08/20/%E6%95%B0%E6%A8%A1%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/" title="数模美赛论文写作：数据查找、画图与备赛资源整理">数模美赛论文写作：数据查找、画图与备赛资源整理</a><time datetime="2026-08-20T09:18:35.000Z" title="发表于 2026-08-20 17:18:35">2026-08-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/08/02/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/" title="数学建模论文写作"><img src="https://blog-1302558010.cos.ap-guangzhou.myqcloud.com/markflow/2026/08/8dad8ed2.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数学建模论文写作"/></a><div class="content"><a class="title" href="/2026/08/02/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/" title="数学建模论文写作">数学建模论文写作</a><time datetime="2026-08-02T08:25:44.000Z" title="发表于 2026-08-02 16:25:44">2026-08-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/15/edge-tts%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90%E6%8C%87%E4%BB%A4%E6%B1%87%E6%80%BB/" title="用 edge-tts 把文字变成语音（含可用语音库与交互脚本）">用 edge-tts 把文字变成语音（含可用语音库与交互脚本）</a><time datetime="2024-12-15T09:51:09.000Z" title="发表于 2024-12-15 17:51:09">2024-12-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/25/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" title="最小生成树">最小生成树</a><time datetime="2024-10-25T09:05:35.000Z" title="发表于 2024-10-25 17:05:35">2024-10-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/20/%E4%BD%BF%E7%94%A8github%20pages+hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="使用 GitHub Pages + Hexo 搭建博客">使用 GitHub Pages + Hexo 搭建博客</a><time datetime="2024-10-20T07:20:00.000Z" title="发表于 2024-10-20 15:20:00">2024-10-20</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2024 - 2026 By chenxi34</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.0.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.1</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.1"></script><script src="/js/main.js?v=5.5.1"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
